@@ -1,0 +1,27 @@
+
+<div class="form-item">
+  <h3>Create Dynamic List </h3>
+  <ng-select 
+    [items]="attributesValues" 
+    bindLabel="name" 
+    class="form-select table-select" 
+    placeholder="Select a Filter" 
+    [(ngModel)]="selectedAttribute" 
+    [searchable]="false"
+    (change)="onFilterChanged($event)"
+    (clear)="onClear()">
+  </ng-select>
+
+  <ng-select *ngIf="this.selectedAttribute"
+    [items]="operatorsValues" 
+    bindLabel="name" 
+    class="form-select table-select" 
+    placeholder="Select an Operator" 
+    [(ngModel)]="selectedOperator" 
+    [searchable]="false"
+    (change)="onOperatorChanged($event)"
+    (clear)="onOperatorClear()">
+  </ng-select>
+  <ng-template dynamicInputs-host></ng-template>
+  <!--  <button class="" (click)="addProfileAttribute()">Add Row</button> -->
+</div>
